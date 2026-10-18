@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f6fb">
   <meta name="description" content="아기 맞춤 날씨별 옷차림과 실내 온습도 관리">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <title>오늘 뭐 입힐까? | Baby Weather Outfit</title>
+
   <style>
     :root {
       --bg: #f4f6fb;
@@ -16,7 +19,7 @@
       --blue-light: #edf1ff;
       --line: #e9edf5;
       --green: #438b70;
-      --shadow: 0 5px 22px rgba(41, 55, 86, .045);
+      --shadow: 0 5px 22px rgba(41,55,86,.045);
     }
 
     * { box-sizing: border-box; }
@@ -45,8 +48,8 @@
 
     .topline {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
       margin-bottom: 7px;
     }
@@ -67,12 +70,7 @@
       letter-spacing: -1.2px;
     }
 
-    h2 {
-      margin: 0;
-      font-size: 17px;
-      letter-spacing: -.4px;
-    }
-
+    h2 { margin: 0; font-size: 17px; letter-spacing: -.4px; }
     h3 { margin: 0; font-size: 14px; }
     p { margin: 7px 0; }
     .muted { color: var(--muted); font-size: 13px; }
@@ -82,10 +80,11 @@
       margin-top: 15px;
       padding: 19px;
       overflow: hidden;
-      border: 1px solid rgba(226, 231, 241, .8);
+      border: 1px solid rgba(226,231,241,.8);
       border-radius: 23px;
       background: var(--card);
       box-shadow: var(--shadow);
+      scroll-margin-top: 12px;
     }
 
     .section-head {
@@ -109,7 +108,7 @@
 
     .weather-card {
       padding: 21px;
-      color: #fff;
+      color: white;
       border: 0;
       background: linear-gradient(145deg, #7189e4, #94a5ed);
     }
@@ -135,7 +134,7 @@
 
     .weather-details {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 8px;
       margin-top: 20px;
     }
@@ -148,17 +147,8 @@
       text-align: center;
     }
 
-    .weather-detail span {
-      display: block;
-      font-size: 11px;
-      opacity: .88;
-    }
-
-    .weather-detail strong {
-      display: block;
-      margin-top: 3px;
-      font-size: 14px;
-    }
+    .weather-detail span { display: block; font-size: 11px; opacity: .88; }
+    .weather-detail strong { display: block; margin-top: 3px; font-size: 14px; }
 
     .weather-bottom {
       display: flex;
@@ -169,22 +159,19 @@
     }
 
     .light-button {
+      min-height: 40px;
       padding: 8px 12px;
       border: 1px solid rgba(255,255,255,.5);
       border-radius: 11px;
       background: rgba(255,255,255,.15);
-      color: #fff;
+      color: white;
       font-size: 12px;
       font-weight: 650;
     }
 
     .weather-status { font-size: 12px; }
 
-    .location-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 13px;
-    }
+    .location-row { display: flex; gap: 8px; margin-top: 13px; }
 
     input, select {
       width: 100%;
@@ -193,7 +180,7 @@
       padding: 10px 12px;
       border: 1px solid #dfe4ef;
       border-radius: 12px;
-      background: #fff;
+      background: white;
       color: var(--text);
     }
 
@@ -226,11 +213,7 @@
 
     .btn-block { width: 100%; margin-top: 13px; }
 
-    .baby-summary {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .baby-summary { display: flex; align-items: center; gap: 12px; }
 
     .baby-avatar {
       display: flex;
@@ -254,50 +237,19 @@
       margin-top: 16px;
     }
 
-    .stat {
-      padding: 14px;
-      border-radius: 15px;
-      background: #f5f7fc;
-    }
-
+    .stat { padding: 14px; border-radius: 15px; background: #f5f7fc; }
     .stat-label { color: var(--muted); font-size: 12px; }
     .stat-value { margin-top: 3px; font-size: 23px; font-weight: 750; }
-    .stat-value small { font-size: 13px; font-weight: 500; }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
+    .form-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    label { display: block; margin-bottom: 5px; font-size: 13px; font-weight: 650; }
+    .form-actions { display: flex; gap: 8px; margin-top: 14px; }
     .form-actions .btn { flex: 1; }
 
-    .outfit-hero {
-      padding: 15px;
-      border-radius: 16px;
-      background: #f2f5ff;
-    }
-
+    .outfit-hero { padding: 15px; border-radius: 16px; background: #f2f5ff; }
     .outfit-hero strong { font-size: 15px; }
 
-    .outfit-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 14px;
-    }
+    .outfit-list { display: grid; gap: 10px; margin-top: 14px; }
 
     .outfit-item {
       display: flex;
@@ -324,7 +276,7 @@
 
     .time-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 8px;
       margin-top: 13px;
     }
@@ -347,12 +299,7 @@
       margin-top: 12px;
     }
 
-    .climate-field {
-      padding: 13px;
-      border-radius: 15px;
-      background: #f6f8fc;
-    }
-
+    .climate-field { padding: 13px; border-radius: 15px; background: #f6f8fc; }
     .climate-field label { margin-bottom: 7px; }
     .climate-field input { font-size: 17px; font-weight: 650; }
 
@@ -364,21 +311,8 @@
     }
 
     .climate-reading strong { color: #317456; }
-
-    .tip {
-      padding: 13px;
-      margin-top: 10px;
-      border-radius: 14px;
-      background: #faf7ef;
-      font-size: 13px;
-    }
-
-    .error {
-      margin-top: 9px;
-      color: #a63f3f;
-      font-size: 12px;
-    }
-
+    .tip { padding: 13px; margin-top: 10px; border-radius: 14px; background: #faf7ef; font-size: 13px; }
+    .error { margin-top: 9px; color: #a63f3f; font-size: 12px; }
     .hidden { display: none !important; }
 
     .bottom-nav {
@@ -399,7 +333,7 @@
       display: grid;
       width: 100%;
       max-width: 560px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
       gap: 3px;
     }
 
@@ -419,12 +353,7 @@
     .nav-button span { font-size: 20px; }
     .nav-button.active { background: var(--blue-light); color: #5268c4; }
 
-    .footer {
-      padding: 25px 0 5px;
-      color: #929bad;
-      font-size: 11px;
-      text-align: center;
-    }
+    .footer { padding: 25px 0 5px; color: #929bad; font-size: 11px; text-align: center; }
 
     @media (min-width: 440px) {
       .app { padding-right: 22px; padding-left: 22px; }
@@ -440,6 +369,7 @@
     }
   </style>
 </head>
+
 <body>
   <main class="app">
     <header>
@@ -463,18 +393,9 @@
       </div>
 
       <div class="weather-details">
-        <div class="weather-detail">
-          <span>습도</span>
-          <strong id="outside-humidity">--%</strong>
-        </div>
-        <div class="weather-detail">
-          <span>풍속</span>
-          <strong id="wind-speed">--</strong>
-        </div>
-        <div class="weather-detail">
-          <span>강수확률</span>
-          <strong id="rain-chance">--%</strong>
-        </div>
+        <div class="weather-detail"><span>습도</span><strong id="outside-humidity">--%</strong></div>
+        <div class="weather-detail"><span>풍속</span><strong id="wind-speed">--</strong></div>
+        <div class="weather-detail"><span>강수확률</span><strong id="rain-chance">--%</strong></div>
       </div>
 
       <div class="weather-bottom">
@@ -518,28 +439,18 @@
             <div class="baby-birthday" id="baby-birthday-display"></div>
           </div>
         </div>
-
         <div class="stats">
-          <div class="stat">
-            <div class="stat-label">현재 월령</div>
-            <div class="stat-value" id="baby-months">-</div>
-          </div>
-          <div class="stat">
-            <div class="stat-label">생후 일수</div>
-            <div class="stat-value" id="baby-days">-</div>
-          </div>
+          <div class="stat"><div class="stat-label">현재 월령</div><div class="stat-value" id="baby-months">-</div></div>
+          <div class="stat"><div class="stat-label">생후 일수</div><div class="stat-value" id="baby-days">-</div></div>
         </div>
-        <button class="btn btn-secondary btn-block" id="edit-baby" type="button">
-          아기 정보 수정
-        </button>
+        <button class="btn btn-secondary btn-block" id="edit-baby" type="button">아기 정보 수정</button>
       </div>
 
       <form id="baby-form">
         <div class="form-grid">
           <div>
             <label for="baby-name-input">아기 이름</label>
-            <input id="baby-name-input" type="text" maxlength="30"
-              placeholder="예: 서윤" required>
+            <input id="baby-name-input" type="text" maxlength="30" placeholder="예: 서윤" required>
           </div>
           <div>
             <label for="birth-date-input">생년월일</label>
@@ -561,31 +472,23 @@
           <div class="muted">현재 날씨를 기준으로 한 참고 추천이에요.</div>
         </div>
       </div>
-
       <div class="outfit-hero">
         <strong id="outfit-headline">날씨를 확인하고 있어요.</strong>
         <p class="muted" id="outfit-summary">실내 온도와 아기의 몸통 상태도 함께 확인해 주세요.</p>
       </div>
-
       <div class="outfit-list" id="outfit-list">
         <div class="outfit-item">
           <div class="outfit-emoji">🧦</div>
-          <div>
-            <h3>옷차림 추천 준비 중</h3>
-            <p class="muted">날씨 데이터가 연결되면 추천해 드릴게요.</p>
-          </div>
+          <div><h3>옷차림 추천 준비 중</h3><p class="muted">날씨 데이터가 연결되면 추천해 드릴게요.</p></div>
         </div>
       </div>
-
       <h3 style="margin-top:18px;">시간대별 기온</h3>
       <div class="time-grid" id="time-grid">
         <div class="time-item"><span class="period">아침</span><strong>--°</strong></div>
         <div class="time-item"><span class="period">낮</span><strong>--°</strong></div>
         <div class="time-item"><span class="period">저녁</span><strong>--°</strong></div>
       </div>
-      <p class="muted small" style="margin-top:12px;">
-        옷차림은 일반적인 참고 정보예요. 아기의 땀, 몸통 온도, 활동량에 따라 조절해 주세요.
-      </p>
+      <p class="muted small" style="margin-top:12px;">옷차림은 일반적인 참고 정보예요. 아기의 땀, 몸통 온도, 활동량에 따라 조절해 주세요.</p>
     </section>
 
     <section class="card" id="climate-section">
@@ -596,28 +499,21 @@
           <div class="muted">실내 측정값을 직접 입력해 관리해요.</div>
         </div>
       </div>
-
       <div class="climate-grid">
         <div class="climate-field">
           <label for="indoor-temp">실내 온도 (°C)</label>
-          <input id="indoor-temp" type="number" min="0" max="45"
-            step="0.1" inputmode="decimal" placeholder="예: 22.5">
+          <input id="indoor-temp" type="number" min="0" max="45" step="0.1" inputmode="decimal" placeholder="예: 22.5">
         </div>
         <div class="climate-field">
           <label for="indoor-humidity">실내 습도 (%)</label>
-          <input id="indoor-humidity" type="number" min="1" max="100"
-            step="1" inputmode="numeric" placeholder="예: 50">
+          <input id="indoor-humidity" type="number" min="1" max="100" step="1" inputmode="numeric" placeholder="예: 50">
         </div>
       </div>
-
       <button class="btn btn-block" id="save-climate" type="button">실내 환경 저장 및 분석</button>
       <p class="error" id="climate-error" role="alert"></p>
       <div id="climate-result" class="climate-reading hidden" aria-live="polite"></div>
       <p class="muted small" id="climate-timestamp"></p>
-
-      <div class="tip" id="ventilation-tip">
-        🌬️ 환기 전에는 외부 미세먼지와 날씨를 확인하세요. 외부 날씨만으로 실내 공기질을 판단할 수는 없어요.
-      </div>
+      <div class="tip" id="ventilation-tip">🌬️ 환기 전에는 외부 미세먼지와 날씨를 확인하세요. 외부 날씨만으로 실내 공기질을 판단할 수는 없어요.</div>
     </section>
 
     <footer class="footer">
@@ -655,7 +551,6 @@
       jeju: { name: "제주", lat: 33.4996, lon: 126.5312 }
     };
 
-    let currentRegion = "bupyeong";
     let weatherData = null;
     let profile = null;
 
@@ -666,20 +561,19 @@
         timeZone: "Asia/Seoul",
         year: "numeric", month: "2-digit", day: "2-digit"
       }).formatToParts(new Date());
-
-      const p = {};
-      parts.forEach(x => p[x.type] = x.value);
-      return `${p.year}-${p.month}-${p.day}`;
+      const values = {};
+      parts.forEach(part => values[part.type] = part.value);
+      return `${values.year}-${values.month}-${values.day}`;
     }
 
     function parseDate(value) {
-      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || "");
-      if (!m) return null;
-      const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
-      if (d.getUTCFullYear() !== +m[1] ||
-          d.getUTCMonth() !== +m[2] - 1 ||
-          d.getUTCDate() !== +m[3]) return null;
-      return d;
+      const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || "");
+      if (!match) return null;
+      const date = new Date(Date.UTC(+match[1], +match[2] - 1, +match[3]));
+      if (date.getUTCFullYear() !== +match[1] ||
+          date.getUTCMonth() !== +match[2] - 1 ||
+          date.getUTCDate() !== +match[3]) return null;
+      return date;
     }
 
     function ageDays(birthString, todayString = koreaDateString()) {
@@ -690,41 +584,49 @@
     }
 
     function ageMonths(birthString, todayString = koreaDateString()) {
-      const b = parseDate(birthString);
-      const t = parseDate(todayString);
-      if (!b || !t || t < b) return null;
+      const birth = parseDate(birthString);
+      const today = parseDate(todayString);
+      if (!birth || !today || today < birth) return null;
 
-      let months = (t.getUTCFullYear() - b.getUTCFullYear()) * 12
-        + t.getUTCMonth() - b.getUTCMonth();
+      let months = (today.getUTCFullYear() - birth.getUTCFullYear()) * 12
+        + today.getUTCMonth() - birth.getUTCMonth();
 
-      const lastBirthDay = new Date(Date.UTC(
-        b.getUTCFullYear(), b.getUTCMonth() + 1, 0
+      const birthLastDay = new Date(Date.UTC(
+        birth.getUTCFullYear(), birth.getUTCMonth() + 1, 0
       )).getUTCDate();
 
-      const anniversaryDay = b.getUTCDate() === lastBirthDay
-        ? new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() + 1, 0)).getUTCDate()
-        : Math.min(b.getUTCDate(), new Date(Date.UTC(
-            t.getUTCFullYear(), t.getUTCMonth(), 0
-          )).getUTCDate());
+      const targetLastDay = new Date(Date.UTC(
+        today.getUTCFullYear(), today.getUTCMonth() + 1, 0
+      )).getUTCDate();
+
+      const anniversaryDay = birth.getUTCDate() === birthLastDay
+        ? targetLastDay
+        : Math.min(birth.getUTCDate(), targetLastDay);
 
       const anniversary = new Date(Date.UTC(
-        t.getUTCFullYear(), t.getUTCMonth(), anniversaryDay
+        today.getUTCFullYear(), today.getUTCMonth(), anniversaryDay
       ));
 
-      if (t < anniversary) months--;
+      if (today < anniversary) months--;
       return Math.max(0, months);
     }
 
     function updateDateLabel() {
       const today = new Date(koreaDateString() + "T12:00:00+09:00");
       $("today-label").textContent = new Intl.DateTimeFormat("ko-KR", {
-        timeZone: "Asia/Seoul",
-        month: "long", day: "numeric", weekday: "short"
+        timeZone: "Asia/Seoul", month: "long", day: "numeric", weekday: "short"
       }).format(today);
     }
 
     function renderProfile() {
-      const saved = localStorage.getItem(PROFILE_KEY);
+      let saved;
+      try {
+        saved = localStorage.getItem(PROFILE_KEY);
+      } catch (error) {
+        $("baby-error").textContent = "브라우저에서 저장 기능을 사용할 수 없어요.";
+        return;
+      }
+
       $("baby-error").textContent = "";
 
       if (!saved) {
@@ -736,25 +638,24 @@
       }
 
       try {
-        const p = JSON.parse(saved);
-        const days = ageDays(p.birthDate);
-        const months = ageMonths(p.birthDate);
+        const savedProfile = JSON.parse(saved);
+        const days = ageDays(savedProfile.birthDate);
+        const months = ageMonths(savedProfile.birthDate);
 
-        if (!p.name || days === null || days < 1 || months === null) {
+        if (!savedProfile.name || days === null || days < 1 || months === null) {
           throw new Error("Invalid profile");
         }
 
-        profile = p;
-        $("baby-name-display").textContent = p.name;
-        $("baby-birthday-display").textContent =
-          `${p.birthDate.replaceAll("-", ". ")}. 출생`;
+        profile = savedProfile;
+        $("baby-name-display").textContent = savedProfile.name;
+        $("baby-birthday-display").textContent = `${savedProfile.birthDate.replaceAll("-", ". ")}. 출생`;
         $("baby-months").textContent = `${months}개월`;
         $("baby-days").textContent = `${days}일`;
         $("baby-summary").classList.remove("hidden");
         $("baby-form").classList.add("hidden");
         $("baby-status").textContent = "아기 정보가 이 브라우저에 저장되어 있어요.";
         updateOutfit();
-      } catch (e) {
+      } catch (error) {
         profile = null;
         $("baby-summary").classList.add("hidden");
         $("baby-form").classList.remove("hidden");
@@ -764,6 +665,7 @@
 
     $("baby-form").addEventListener("submit", event => {
       event.preventDefault();
+
       const name = $("baby-name-input").value.trim();
       const birthDate = $("birth-date-input").value;
       const days = ageDays(birthDate);
@@ -772,6 +674,7 @@
         $("baby-error").textContent = "아기 이름을 입력해 주세요.";
         return;
       }
+
       if (!parseDate(birthDate) || days === null || days < 1) {
         $("baby-error").textContent = "올바른 생년월일을 선택해 주세요.";
         return;
@@ -781,9 +684,8 @@
         localStorage.setItem(PROFILE_KEY, JSON.stringify({ name, birthDate }));
         $("baby-status").textContent = "저장 완료!";
         renderProfile();
-      } catch (e) {
-        $("baby-error").textContent =
-          "저장에 실패했어요. 브라우저 저장 공간을 확인해 주세요.";
+      } catch (error) {
+        $("baby-error").textContent = "저장에 실패했어요. 브라우저 저장 공간을 확인해 주세요.";
       }
     });
 
@@ -816,62 +718,51 @@
 
       const url = "https://api.open-meteo.com/v1/forecast"
         + `?latitude=${lat}&longitude=${lon}`
-        + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,"
-        + "is_day,precipitation,weather_code,wind_speed_10m"
+        + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m"
         + "&hourly=temperature_2m,precipitation_probability,weather_code"
         + "&forecast_days=2&timezone=Asia%2FSeoul";
 
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Weather request failed");
+
         const data = await response.json();
         if (!data.current || !data.hourly) throw new Error("Missing weather data");
 
         weatherData = data;
         $("location-label").textContent = `📍 ${label}`;
-        $("temperature").textContent =
-          `${Math.round(data.current.temperature_2m)}°`;
-        $("feels-like").textContent =
-          `체감 ${Math.round(data.current.apparent_temperature)}°`;
+        $("temperature").textContent = `${Math.round(data.current.temperature_2m)}°`;
+        $("feels-like").textContent = `체감 ${Math.round(data.current.apparent_temperature)}°`;
 
         const [description, emoji] = weatherDescription(data.current.weather_code);
         $("weather-description").textContent = description;
         $("weather-emoji").textContent = emoji;
-        $("outside-humidity").textContent =
-          `${data.current.relative_humidity_2m}%`;
-        $("wind-speed").textContent =
-          `${Math.round(data.current.wind_speed_10m)} km/h`;
+        $("outside-humidity").textContent = `${data.current.relative_humidity_2m}%`;
+        $("wind-speed").textContent = `${Math.round(data.current.wind_speed_10m)} km/h`;
 
         const now = new Date();
-        const hourlyTimes = data.hourly.time.map(t => new Date(t));
-        let nearest = hourlyTimes.findIndex(t => t >= now);
-        if (nearest < 0) nearest = 0;
+        const index = Math.max(0, data.hourly.time.findIndex(time => new Date(time) >= now));
+        const rain = data.hourly.precipitation_probability[index];
+        $("rain-chance").textContent = rain == null ? "정보 없음" : `${rain}%`;
 
-        const chance = data.hourly.precipitation_probability[nearest];
-        $("rain-chance").textContent =
-          chance == null ? "정보 없음" : `${chance}%`;
-
-        $("weather-status").textContent =
-          `현지 시각 기준 · ${new Intl.DateTimeFormat("ko-KR", {
-            timeZone: "Asia/Seoul", hour: "2-digit", minute: "2-digit"
-          }).format(now)} 갱신`;
+        $("weather-status").textContent = `현지 시각 기준 · ${new Intl.DateTimeFormat("ko-KR", {
+          timeZone: "Asia/Seoul", hour: "2-digit", minute: "2-digit"
+        }).format(now)} 갱신`;
 
         updateOutfit();
         updateTimeGrid();
         $("ventilation-tip").textContent =
           "🌬️ 외부 미세먼지 정보는 아직 연결되지 않았어요. 환기 전 국내 대기질 정보를 별도로 확인해 주세요.";
-      } catch (e) {
+      } catch (error) {
         $("weather-status").textContent = "날씨 조회 실패";
-        $("weather-error").textContent =
-          "날씨를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 시도해 주세요.";
+        $("weather-error").textContent = "날씨를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 시도해 주세요.";
         $("weather-description").textContent = "날씨 정보 없음";
         $("outfit-headline").textContent = "현재 날씨를 확인할 수 없어요.";
-        $("outfit-summary").textContent =
-          "실제 기온을 확인한 뒤 옷차림을 결정해 주세요.";
+        $("outfit-summary").textContent = "실제 기온을 확인한 뒤 옷차림을 결정해 주세요.";
       }
     }
 
-    async function applyRegion() {
+    function applyRegion() {
       const selected = $("region-select").value;
 
       if (selected === "gps") {
@@ -882,15 +773,13 @@
 
         $("weather-status").textContent = "현재 위치 확인 중...";
         navigator.geolocation.getCurrentPosition(
-          pos => {
-            currentRegion = "gps";
-            localStorage.setItem(REGION_KEY, "gps");
-            loadWeather(pos.coords.latitude, pos.coords.longitude, "현재 위치");
+          position => {
+            try { localStorage.setItem(REGION_KEY, "gps"); } catch (_) {}
+            loadWeather(position.coords.latitude, position.coords.longitude, "현재 위치");
           },
           () => {
             $("weather-status").textContent = "위치 확인 실패";
-            $("weather-error").textContent =
-              "위치 권한을 허용하거나 다른 지역을 선택해 주세요.";
+            $("weather-error").textContent = "위치 권한을 허용하거나 다른 지역을 선택해 주세요.";
           },
           { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
         );
@@ -900,13 +789,13 @@
       const region = regions[selected];
       if (!region) return;
 
-      currentRegion = selected;
-      localStorage.setItem(REGION_KEY, selected);
+      try { localStorage.setItem(REGION_KEY, selected); } catch (_) {}
       loadWeather(region.lat, region.lon, region.name);
     }
 
     function updateTimeGrid() {
       if (!weatherData) return;
+
       const times = weatherData.hourly.time;
       const temps = weatherData.hourly.temperature_2m;
       const now = new Date();
@@ -918,38 +807,35 @@
       ];
 
       $("time-grid").innerHTML = periods.map(period => {
-        const date = new Date(now);
-        date.setHours(period.hour, 0, 0, 0);
-        let index = times.findIndex(t => new Date(t) >= date);
+        const target = new Date(now);
+        target.setHours(period.hour, 0, 0, 0);
+
+        let index = times.findIndex(time => new Date(time) >= target);
         if (index < 0) index = times.length - 1;
 
-        const temp = temps[index];
+        const temperature = temps[index];
         let note = "겉옷 확인";
-        if (temp >= 27) note = "얇고 시원하게";
-        else if (temp >= 22) note = "얇은 긴팔";
-        else if (temp >= 16) note = "가디건 준비";
-        else if (temp >= 10) note = "겉옷 챙기기";
+        if (temperature >= 27) note = "얇고 시원하게";
+        else if (temperature >= 22) note = "얇은 긴팔";
+        else if (temperature >= 16) note = "가디건 준비";
+        else if (temperature >= 10) note = "겉옷 챙기기";
         else note = "보온에 신경 쓰기";
 
-        return `<div class="time-item">
-          <span class="period">${period.name}</span>
-          <strong>${Math.round(temp)}°</strong>
-          <p>${note}</p>
-        </div>`;
+        return `<div class="time-item"><span class="period">${period.name}</span><strong>${Math.round(temperature)}°</strong><p>${note}</p></div>`;
       }).join("");
     }
 
     function updateOutfit() {
       if (!weatherData) return;
 
-      const temp = weatherData.current.apparent_temperature;
+      const temperature = weatherData.current.apparent_temperature;
       const wind = weatherData.current.wind_speed_10m;
-      const rain = weatherData.current.precipitation;
+      const precipitation = weatherData.current.precipitation;
       const months = profile ? ageMonths(profile.birthDate) : null;
 
       let headline, summary, items;
 
-      if (temp >= 28) {
+      if (temperature >= 28) {
         headline = "더위를 피하고 시원하게 입혀요.";
         summary = "통풍이 잘되는 얇은 옷을 선택하고 땀과 몸통 열감을 자주 확인해 주세요.";
         items = [
@@ -957,7 +843,7 @@
           ["🩳", "하의", "얇은 면바지 또는 편안한 반바지"],
           ["🧢", "외출 준비", "직사광선을 피하고 그늘에서 쉬기. 모자는 상황에 맞게 사용"]
         ];
-      } else if (temp >= 23) {
+      } else if (temperature >= 23) {
         headline = "가볍고 편안한 옷차림이 좋아요.";
         summary = "실내는 얇게 입히고 바람이 불거나 저녁에 쌀쌀하면 겉옷을 추가하세요.";
         items = [
@@ -965,7 +851,7 @@
           ["👖", "하의", "얇은 면바지"],
           ["🧥", "겉옷", "바람이 불거나 냉방이 강하면 얇은 가디건"]
         ];
-      } else if (temp >= 18) {
+      } else if (temperature >= 18) {
         headline = "긴팔과 얇은 겉옷을 준비해요.";
         summary = "아침저녁 기온과 바람을 확인하고 더워하면 겉옷을 벗겨 주세요.";
         items = [
@@ -973,7 +859,7 @@
           ["👖", "하의", "긴 면바지"],
           ["🧥", "겉옷", "얇은 가디건 또는 가벼운 바람막이"]
         ];
-      } else if (temp >= 12) {
+      } else if (temperature >= 12) {
         headline = "겹쳐 입혀 온도에 맞게 조절해요.";
         summary = "바람이 강하면 체감 추위가 커질 수 있어요. 실내에서는 겉옷을 벗겨 주세요.";
         items = [
@@ -991,110 +877,96 @@
         ];
       }
 
-      if (wind >= 20) {
-        summary += " 바람이 강하므로 바람막이를 추가로 고려하세요.";
-      }
-      if (rain >= 0.2) {
-        summary += " 강수가 관측되고 있으니 방수 겉옷이나 유모차 비가림을 준비하세요.";
-      }
-      if (months !== null && months < 12) {
-        summary += " 아직 돌 전 아기이므로 옷이 얼굴을 덮지 않도록 하고 과도한 보온을 피하세요.";
-      }
+      if (wind >= 20) summary += " 바람이 강하므로 바람막이를 추가로 고려하세요.";
+      if (precipitation >= 0.2) summary += " 강수가 관측되고 있으니 방수 겉옷을 준비하세요.";
+      if (months !== null && months < 12) summary += " 돌 전 아기이므로 얼굴이 가려지지 않게 하고 과도한 보온을 피하세요.";
 
       $("outfit-headline").textContent = headline;
       $("outfit-summary").textContent = summary;
-      $("outfit-list").innerHTML = items.map(item => `
-        <div class="outfit-item">
-          <div class="outfit-emoji">${item[0]}</div>
-          <div><h3>${item[1]}</h3><p class="muted">${item[2]}</p></div>
-        </div>
-      `).join("");
+      $("outfit-list").innerHTML = items.map(item =>
+        `<div class="outfit-item"><div class="outfit-emoji">${item[0]}</div><div><h3>${item[1]}</h3><p class="muted">${item[2]}</p></div></div>`
+      ).join("");
     }
 
-    function analyzeClimate() {
-      $("climate-error").textContent = "";
-      const tValue = $("indoor-temp").value;
-      const hValue = $("indoor-humidity").value;
-      const t = Number(tValue);
-      const h = Number(hValue);
+    function climateAdvice(temperature, humidity) {
+      const advice = [];
 
-      if (tValue === "" || hValue === "" ||
-          !Number.isFinite(t) || !Number.isFinite(h) ||
-          t < 0 || t > 45 || h < 1 || h > 100) {
-        $("climate-error").textContent =
-          "온도는 0~45°C, 습도는 1~100% 범위로 입력해 주세요.";
-        return;
-      }
-
-      let advice = [];
-      if (t < 18) advice.push("실내가 서늘해요. 난방을 조절하고 아기의 몸통 온도를 확인해 주세요.");
-      else if (t > 25) advice.push("실내가 더울 수 있어요. 환기나 냉방을 고려하고 과도한 옷을 줄여 주세요.");
+      if (temperature < 18) advice.push("실내가 서늘해요. 난방을 조절하고 아기의 몸통 온도를 확인해 주세요.");
+      else if (temperature > 25) advice.push("실내가 더울 수 있어요. 환기나 냉방을 고려하고 과도한 옷을 줄여 주세요.");
       else advice.push("온도는 참고 범위 안에 있어요. 아기의 땀과 수면 상태도 함께 살펴보세요.");
 
-      if (h < 40) advice.push("습도가 낮아요. 가습을 고려하고 가습기를 정기적으로 세척해 주세요.");
-      else if (h > 60) advice.push("습도가 높아요. 환기나 제습으로 결로와 곰팡이를 예방해 주세요.");
+      if (humidity < 40) advice.push("습도가 낮아요. 가습을 고려하고 가습기를 정기적으로 세척해 주세요.");
+      else if (humidity > 60) advice.push("습도가 높아요. 환기나 제습으로 결로와 곰팡이를 예방해 주세요.");
       else advice.push("습도는 참고 범위 안에 있어요.");
 
-      const now = new Date();
-      const record = {
-        temperature: t,
-        humidity: h,
-        savedAt: now.toISOString()
-      };
-
-      try {
-        localStorage.setItem(CLIMATE_KEY, JSON.stringify(record));
-      } catch (e) {
-        $("climate-error").textContent =
-          "저장 공간을 사용할 수 없어 현재 화면에서만 분석했어요.";
-      }
-
-      renderClimate(record);
+      return advice;
     }
 
     function renderClimate(record) {
       if (!record) return;
 
-      const t = Number(record.temperature);
-      const h = Number(record.humidity);
-      if (!Number.isFinite(t) || !Number.isFinite(h)) return;
+      const temperature = Number(record.temperature);
+      const humidity = Number(record.humidity);
+      if (!Number.isFinite(temperature) || !Number.isFinite(humidity)) return;
 
-      let advice = [];
-      if (t < 18) advice.push("실내가 서늘해요. 난방을 조절하고 아기의 몸통 온도를 확인해 주세요.");
-      else if (t > 25) advice.push("실내가 더울 수 있어요. 환기나 냉방을 고려하고 과도한 옷을 줄여 주세요.");
-      else advice.push("온도는 참고 범위 안에 있어요. 아기의 땀과 수면 상태도 함께 살펴보세요.");
+      const advice = climateAdvice(temperature, humidity);
+      $("climate-result").replaceChildren();
 
-      if (h < 40) advice.push("습도가 낮아요. 가습을 고려하고 가습기를 정기적으로 세척해 주세요.");
-      else if (h > 60) advice.push("습도가 높아요. 환기나 제습으로 결로와 곰팡이를 예방해 주세요.");
-      else advice.push("습도는 참고 범위 안에 있어요.");
+      const title = document.createElement("strong");
+      title.textContent = "환경 안내";
+      $("climate-result").appendChild(title);
 
-      $("climate-result").innerHTML =
-        `<strong>환경 안내</strong><p>${advice.join("</p><p>")}</p>`;
+      advice.forEach(text => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        $("climate-result").appendChild(paragraph);
+      });
+
       $("climate-result").classList.remove("hidden");
-
-      const savedDate = new Date(record.savedAt);
       $("climate-timestamp").textContent =
         `마지막 입력: ${new Intl.DateTimeFormat("ko-KR", {
           dateStyle: "medium", timeStyle: "short"
-        }).format(savedDate)} · 직접 입력한 값`;
+        }).format(new Date(record.savedAt))} · 직접 입력한 값`;
 
-      $("indoor-temp").value = t;
-      $("indoor-humidity").value = h;
+      $("indoor-temp").value = temperature;
+      $("indoor-humidity").value = humidity;
     }
 
-    $("save-climate").addEventListener("click", analyzeClimate);
+    $("save-climate").addEventListener("click", () => {
+      $("climate-error").textContent = "";
+
+      const temperatureText = $("indoor-temp").value;
+      const humidityText = $("indoor-humidity").value;
+      const temperature = Number(temperatureText);
+      const humidity = Number(humidityText);
+
+      if (temperatureText === "" || humidityText === "" ||
+          !Number.isFinite(temperature) || !Number.isFinite(humidity) ||
+          temperature < 0 || temperature > 45 ||
+          humidity < 1 || humidity > 100) {
+        $("climate-error").textContent = "온도는 0~45°C, 습도는 1~100% 범위로 입력해 주세요.";
+        return;
+      }
+
+      const record = { temperature, humidity, savedAt: new Date().toISOString() };
+
+      try {
+        localStorage.setItem(CLIMATE_KEY, JSON.stringify(record));
+      } catch (error) {
+        $("climate-error").textContent = "저장 공간을 사용할 수 없어 현재 화면에서만 분석했어요.";
+      }
+
+      renderClimate(record);
+    });
+
     $("refresh-weather").addEventListener("click", applyRegion);
     $("change-region").addEventListener("click", applyRegion);
 
     document.querySelectorAll(".nav-button").forEach(button => {
       button.addEventListener("click", () => {
-        document.querySelectorAll(".nav-button").forEach(b =>
-          b.classList.remove("active")
-        );
+        document.querySelectorAll(".nav-button").forEach(item => item.classList.remove("active"));
         button.classList.add("active");
-        $(button.dataset.target).scrollIntoView({
-          behavior: "smooth", block: "start"
-        });
+        $(button.dataset.target).scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
 
@@ -1103,21 +975,20 @@
       $("birth-date-input").max = koreaDateString();
 
       try {
-        currentRegion = localStorage.getItem(REGION_KEY) || "bupyeong";
-        if (!regions[currentRegion]) currentRegion = "bupyeong";
-        $("region-select").value = currentRegion;
+        const savedRegion = localStorage.getItem(REGION_KEY) || "bupyeong";
+        const selectedRegion = regions[savedRegion] ? savedRegion : "bupyeong";
+        $("region-select").value = selectedRegion;
 
         const savedClimate = localStorage.getItem(CLIMATE_KEY);
         if (savedClimate) renderClimate(JSON.parse(savedClimate));
-      } catch (e) {
-        $("climate-error").textContent =
-          "이 브라우저에서 저장된 환경 정보를 불러오지 못했어요.";
+
+        renderProfile();
+
+        const region = regions[selectedRegion];
+        loadWeather(region.lat, region.lon, region.name);
+      } catch (error) {
+        $("weather-error").textContent = "초기 설정을 불러오지 못했어요. 새로고침해 주세요.";
       }
-
-      renderProfile();
-
-      const region = regions[currentRegion];
-      loadWeather(region.lat, region.lon, region.name);
     }
 
     document.addEventListener("visibilitychange", () => {
@@ -1128,6 +999,13 @@
     });
 
     initialize();
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+          .catch(error => console.error("Service worker registration failed:", error));
+      });
+    }
   </script>
 </body>
-  </html>
+</html>
