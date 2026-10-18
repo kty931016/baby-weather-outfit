@@ -1,88 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="아기 옷차림과 실내 온습도 관리">
+  <title>오늘 뭐 입힐까? | Baby Weather Outfit</title>
 
+  <style>
+    :root {
+      --bg: #f5f7fc;
+      --card: #ffffff;
+      --text: #28334b;
+      --muted: #7b859b;
+      --primary: #687fda;
+      --line: #e9edf5;
+      --blue: #eef3ff;
+      --pink: #fff0f4;
+      --green: #edf8f1;
+      --yellow: #fff7e5;
+    }
 
+    * { box-sizing: border-box; }
 
-  
-  
-  
-  
-  
-  
+    html { min-height: 100%; }
 
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans KR", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
 
-  
-    
-      
-BABY WEATHER OUTFIT
+    button, input, select { font: inherit; }
 
-      
-오늘 뭐 입힐까? ☁️
+    button { cursor: pointer; }
 
-      
-우리 아기를 위한 날씨별 옷차림 가이드
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid #c4ceff;
+      outline-offset: 2px;
+    }
 
-    
+    .app {
+      width: 100%;
+      max-width: 540px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 25px 18px 36px;
+    }
 
-<section class="card">
-  <h2>🌤️ 오늘의 날씨</h2>
-  <div class="weather-box">
-    <div class="weather-icon">🌦️</div>
-    <strong>날씨 정보를 준비하고 있어요</strong>
-    <p class="muted">다음 단계에서 실제 날씨를 연결할게요.</p>
-  </div>
-</section>
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
 
-<section class="card">
-  <h2>👶 우리 아기</h2>
-  <div id="baby-summary" class="hidden">
-    <p id="baby-name"></p>
-    <div class="stat-grid">
-      <div class="stat">
-        <div class="stat-label">현재 월령</div>
-        <div class="stat-value" id="baby-months">-</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">생후 일수</div>
-        <div class="stat-value" id="baby-days">-</div>
-      </div>
-    </div>
-    <p class="muted" id="baby-birthday"></p>
-    <button class="secondary primary" id="edit-button" type="button">
-      아기 정보 수정
-    </button>
-  </div>
+    .brand {
+      color: #7885a4;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
 
-  <form id="baby-form">
-    <label for="baby-name-input">아기 이름</label>
-    <input id="baby-name-input" name="babyName"
-      type="text" maxlength="30" placeholder="예: 서윤" required>
-
-    <label for="birth-date-input">생년월일</label>
-    <input id="birth-date-input" name="birthDate"
-      type="date" required>
-
-    <p class="muted">태어난 날을 생후 1일로 계산해요.</p>
-    <p id="form-error" class="error" role="alert"></p>
-
-    <button class="primary" type="submit">아기 정보 저장하기</button>
-  </form>
-
-  <p id="save-status" class="success" role="status"></p>
-</section>
-
-<section class="card">
-  <h2>👕 오늘의 옷차림</h2>
-  <p class="muted">날씨 연결 후 아기 월령과 기온에 맞는 옷을 추천해요.</p>
-</section>
-
-<section class="card">
-  <h2>🏠 우리 집 온습도</h2>
-  <p class="muted">다음 단계에서 실내 온도와 습도 관리 기능을 추가할게요.</p>
-</section>
-
-<footer class="footer">Baby Weather Outfit · 아기 맞춤 날씨 가이드</footer>
-
-
-  
-  
-
-
+    .today-label {
+      color: var(--muted);
+      font-size: 12px;
+      text
