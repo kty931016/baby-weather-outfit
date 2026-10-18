@@ -24,39 +24,65 @@ BABY WEATHER OUTFIT
 
 <section class="card">
   <h2>🌤️ 오늘의 날씨</h2>
-  <div class="weather-placeholder">
+  <div class="weather-box">
     <div class="weather-icon">🌦️</div>
     <strong>날씨 정보를 준비하고 있어요</strong>
-    <p>다음 단계에서 실제 날씨 데이터를 연결할게요.</p>
+    <p class="muted">다음 단계에서 실제 날씨를 연결할게요.</p>
   </div>
 </section>
 
 <section class="card">
   <h2>👶 우리 아기</h2>
-  <p id="baby-status">아기 정보를 설정하면 월령과 생후 일수를 보여드려요.</p>
-  <p class="notice">생후 일수는 태어난 날을 1일로 계산합니다.</p>
-  <button class="primary-button" id="setup-button" type="button">
-    아기 정보 설정 준비
-  </button>
+  <div id="baby-summary" class="hidden">
+    <p id="baby-name"></p>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-label">현재 월령</div>
+        <div class="stat-value" id="baby-months">-</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">생후 일수</div>
+        <div class="stat-value" id="baby-days">-</div>
+      </div>
+    </div>
+    <p class="muted" id="baby-birthday"></p>
+    <button class="secondary primary" id="edit-button" type="button">
+      아기 정보 수정
+    </button>
+  </div>
+
+  <form id="baby-form">
+    <label for="baby-name-input">아기 이름</label>
+    <input id="baby-name-input" name="babyName"
+      type="text" maxlength="30" placeholder="예: 서윤" required>
+
+    <label for="birth-date-input">생년월일</label>
+    <input id="birth-date-input" name="birthDate"
+      type="date" required>
+
+    <p class="muted">태어난 날을 생후 1일로 계산해요.</p>
+    <p id="form-error" class="error" role="alert"></p>
+
+    <button class="primary" type="submit">아기 정보 저장하기</button>
+  </form>
+
+  <p id="save-status" class="success" role="status"></p>
 </section>
 
 <section class="card">
   <h2>👕 오늘의 옷차림</h2>
-  <p>날씨를 연결한 뒤 아기에게 알맞은 옷차림을 추천할게요.</p>
+  <p class="muted">날씨 연결 후 아기 월령과 기온에 맞는 옷을 추천해요.</p>
 </section>
 
 <section class="card">
   <h2>🏠 우리 집 온습도</h2>
-  <p>실내 온도와 습도를 입력하고 관리 방법을 확인할 수 있도록 만들 예정이에요.</p>
+  <p class="muted">다음 단계에서 실내 온도와 습도 관리 기능을 추가할게요.</p>
 </section>
 
-<footer class="footer">
-  Baby Weather Outfit · 아기 맞춤 날씨 가이드
-</footer>
+<footer class="footer">Baby Weather Outfit · 아기 맞춤 날씨 가이드</footer>
 
 
   
   
-
 
 
