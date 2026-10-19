@@ -1,23 +1,27 @@
 {
-"id": "baby-weather-outfit",
-"name": "오늘 뭐 입힐까? - 아기 날씨 가이드",
-"short_name": "아기 옷차림",
-"description": "아기 월령별 옷차림과 실내 온습도 관리",
-"lang": "ko-KR",
-"start_url": "./",
-"scope": "./",
-"display": "standalone",
-"orientation": "portrait",
-"background_color": "#f4f6fb",
-"theme_color": "#f4f6fb",
-"icons": [
-{
-"src": "./icon.svg",
-"sizes": "any",
-"type": "image/svg+xml",
-"purpose": "any"
+  "id": "./",
+  "name": "오늘 뭐 입힐까? - 아기 날씨 가이드",
+  "short_name": "아기 옷차림",
+  "description": "아기 월령별 옷차림과 실내 온습도 관리",
+  "lang": "ko-KR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6fb",
+  "theme_color": "#f4f6fb",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
-]
-}
-
-
